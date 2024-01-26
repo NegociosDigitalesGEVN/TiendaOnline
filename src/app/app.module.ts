@@ -8,6 +8,8 @@ import { RegisterComponent } from './componentes/register/register.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { HeaderComponent } from './componentes/header/header.component';
 import { FooterComponent } from './componentes/footer/footer.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { FooterComponent } from './componentes/footer/footer.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     PrimengModule
   ],
