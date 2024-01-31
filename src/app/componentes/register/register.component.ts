@@ -11,8 +11,8 @@ export class RegisterComponent {
   registerForm = this.fb.group({
     name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?:\s+[a-zA-Z]+)+$/)]],
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required,Validators.minLength(8),Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{8,}$/)]]
-  
+    password: ['', [Validators.required,Validators.minLength(8),Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{8,}$/)]],
+    confirmPassword: ['', [Validators.required  ]]
   });
 
   constructor(private fb:FormBuilder){
@@ -29,6 +29,10 @@ export class RegisterComponent {
 
   get password(){
     return this.registerForm.controls['password'];
+  }
+
+  get confirmPassword(){
+    return this.registerForm.controls['confirmPassword']
   }
 
 }
