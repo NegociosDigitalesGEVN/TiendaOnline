@@ -61,8 +61,10 @@
             />
         </div>
         <small *ngIf="confirmPassword.invalid && (confirmPassword.dirty||confirmPassword.touched)" class="block p-error">
-            <div *ngIf="password.errors?.['required']">La contraseña es requerida</div>
-            <div *ngIf="password.errors?.['minlength']">La contraseña debe tener al menos 8 caracteres</div>    
+            <div *ngIf="confirmPassword.errors?.['required']">Confirmar contraseña</div>  
+        </small>
+        <small *ngIf="registerForm.errors?.['passwordMismatch'] && confirmPassword.valid && password.valid" class="block p-error">
+            <div *ngIf="registerForm.hasError('passwordMismatch')">No coinciden las contraseñas</div>
         </small>
         <br>
         <p-button label="Registrarse" styleClass="w-full" [disabled]="registerForm.invalid"></p-button>

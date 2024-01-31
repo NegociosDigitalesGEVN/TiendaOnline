@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { passwordMatchValidator } from '../../shared/password-match.directives';
 
 
 @Component({
@@ -12,7 +13,9 @@ export class RegisterComponent {
     name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?:\s+[a-zA-Z]+)+$/)]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required,Validators.minLength(8),Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{8,}$/)]],
-    confirmPassword: ['', [Validators.required  ]]
+    confirmPassword: ['', [Validators.required]]
+  },{
+    validator: passwordMatchValidator
   });
 
   constructor(private fb:FormBuilder){
