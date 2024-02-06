@@ -1,4 +1,4 @@
-<form [formGroup]="registerForm">
+<form [formGroup]="registerForm" (ngSubmit)="enviarRegistro()">
     <p-card header="Registro" [style]="{width: '360px'}">
         <div class="field"> 
             <label for="nombre">Nombre Completo</label>
@@ -67,7 +67,7 @@
             <div *ngIf="registerForm.hasError('passwordMismatch')">No coinciden las contraseñas</div>
         </small>
         <br>
-        <p-button label="Registrarse" styleClass="w-full" [disabled]="registerForm.invalid"></p-button>
+        <p-button label="Registrarse" styleClass="w-full" [disabled]="registerForm.invalid" type="submit"></p-button>
 
         <div class="mt-2">
             ¿Cuentas con una cuenta? <a routerLink="/login">Ingresa</a>
