@@ -1,4 +1,4 @@
-<form [formGroup]="loginForm">
+<form [formGroup]="loginForm" (ngSubmit)="login()">
     <p-card header="Ingresar al sistema" [style]="{width: '360px'}">
         <div class="field"> 
             <label for="email">Correo Electrónico</label>
@@ -33,7 +33,7 @@
               La contraseña debe contener al menos una letra minúscula, una mayúscula y un carácter especial </div>    
         </small>
         <br>
-        <p-button label="Ingresar" styleClass="w-full" [disabled]="loginForm.invalid"></p-button>
+        <p-button label="Ingresar" styleClass="w-full" [disabled]="loginForm.invalid" type="submit"></p-button>
 
         <div class="mt-2">
             ¿No tienes cuenta? <a routerLink="/register">Registrate</a>

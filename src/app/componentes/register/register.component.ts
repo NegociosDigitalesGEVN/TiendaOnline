@@ -5,7 +5,7 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { User } from '../../interfaces/user';
-import { error } from 'console';
+
 
 
 @Component({
@@ -26,7 +26,7 @@ export class RegisterComponent {
   constructor(private fb:FormBuilder, 
     private auth: AuthService, 
     private router: Router, 
-    private mensaje: MessageService){
+    private messageService: MessageService){
 
   };
 
@@ -52,7 +52,11 @@ export class RegisterComponent {
     delete data.confirmPassword
     
     this.auth.registerUser(data as User).subscribe(
-      response => console.log(response), 
+      response => {
+        console.log(response)
+        this.messageService.add({ severity: 'success', summary: 'Registro Exitoso', detail: 'Se ha registrado correctamente el usuario' });
+        this.router.navigate(['login']);
+      }, 
       error => console.log(error)
     )
   }
